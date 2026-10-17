@@ -23,7 +23,7 @@ export const FinalBirthdaySection = () => {
           className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-rose-950/90 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-serif mb-8 shadow-xl backdrop-blur-md"
         >
           <Sparkles className="w-4 h-4 text-amber-300 animate-sparkle" />
-          <span>3 October 2026 • 20th Birthday Celebration</span>
+          <span>3 October 2026 • 19th Birthday Celebration</span>
           <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400" />
         </motion.div>
 
@@ -35,9 +35,9 @@ export const FinalBirthdaySection = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-cream-50 font-normal mb-8 leading-tight drop-shadow-[0_4px_30px_rgba(244,63,94,0.35)]"
         >
-          Happy Birthday, <br />
+          Happy 19th Birthday, <br />
           <span className="font-cursive text-rose-400 text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-            My Love ❤️
+            Bushra ❤️
           </span>
         </motion.h2>
 

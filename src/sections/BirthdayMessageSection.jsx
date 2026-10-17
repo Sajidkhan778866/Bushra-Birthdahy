@@ -58,18 +58,18 @@ export const BirthdayMessageSection = () => {
             </p>
 
             <p>
-              Today, as you turn <span className="text-rose-300 font-serif font-semibold">20</span>, I want to thank you simply for being you. For your kind heart, your innocent laughter, and the unconditional love you give.
+              Today, as you celebrate your <span className="text-rose-300 font-serif font-semibold">19th birthday</span>, I want to thank you simply for being you. For your kind heart, your innocent laughter, and the unconditional love you give.
             </p>
 
             <p className="font-serif italic text-rose-200/95 text-lg sm:text-xl pt-2">
-              May this birthday be the beginning of the most beautiful decade of your life — and I promise to celebrate every single one of your future birthdays right by your side.
+              May this 19th year of your life be filled with pure joy, endless peace, and every dream your heart holds dear — with me right by your side through it all.
             </p>
           </div>
 
           <div className="mt-10 pt-8 border-t border-rose-500/15 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-rose-300/80 text-sm font-serif">
               <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>Happy 20th Birthday, Meri Jaan</span>
+              <span>Happy 19th Birthday, Bushra ❤️</span>
             </div>
 
             <div className="text-right text-rose-200 font-cursive text-2xl sm:text-3xl">

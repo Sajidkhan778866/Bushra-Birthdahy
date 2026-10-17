@@ -54,9 +54,9 @@ export const FinalSpecialPhotoSection = ({ onPhotoClick }) => {
           </p>
 
           <h3 className="text-3xl sm:text-5xl md:text-6xl font-serif text-cream-50 font-normal leading-tight">
-            Happy 20th Birthday, <br className="sm:hidden" />
+            Happy 19th Birthday, <br className="sm:hidden" />
             <span className="font-cursive text-rose-400 text-4xl sm:text-6xl md:text-7xl">
-              {birthdayConfig.name}.
+              {birthdayConfig.name} ❤️
             </span>
           </h3>
 

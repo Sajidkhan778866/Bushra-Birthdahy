@@ -33,10 +33,10 @@ export const storyMilestones = [
   },
   {
     id: 5,
-    title: "Entering 20 — Together Towards Forever",
+    title: "Celebrating 19 — Together Towards Forever",
     date: "3 October 2026",
     badge: "Today & Always",
-    description: "Celebrating your 20th birthday and praying for a lifetime of endless laughter, dreams, and unwavering love together.",
+    description: "Celebrating your 19th birthday and praying for a lifetime of endless laughter, dreams, and unwavering love together.",
     category: "memories"
   }
 ];

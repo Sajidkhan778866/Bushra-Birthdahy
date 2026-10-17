@@ -35,7 +35,7 @@ export const HeroSection = ({ onStartJourney }) => {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/70 border border-rose-500/30 text-rose-200 text-xs sm:text-sm font-serif mb-8 shadow-lg backdrop-blur-md"
         >
           <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-sparkle" />
-          <span>A Special Celebration for {birthdayConfig.name}</span>
+          <span>3 October 2026 • 19th Birthday Celebration</span>
           <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
         </motion.div>
 
@@ -46,9 +46,9 @@ export const HeroSection = ({ onStartJourney }) => {
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-tight text-cream-50 mb-6 leading-tight drop-shadow-[0_4px_30px_rgba(244,63,94,0.35)]"
         >
-          Happy Birthday, <br className="sm:hidden" />
+          Happy 19th Birthday, <br className="sm:hidden" />
           <span className="font-cursive text-rose-400 text-5xl sm:text-7xl md:text-8xl lg:text-9xl block sm:inline mt-2 sm:mt-0 font-normal">
-            My Love ❤️
+            Bushra ❤️
           </span>
         </motion.h1>
 

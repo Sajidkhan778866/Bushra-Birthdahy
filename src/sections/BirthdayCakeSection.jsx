@@ -44,7 +44,7 @@ export const BirthdayCakeSection = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/80 border border-rose-500/25 text-rose-300 text-xs sm:text-sm font-serif mb-4 shadow-lg backdrop-blur-md">
             <CakeIcon className="w-3.5 h-3.5 text-amber-300" />
-            <span>A 20th Birthday Ritual</span>
+            <span>A 19th Birthday Ritual</span>
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
           </div>
 
@@ -52,7 +52,7 @@ export const BirthdayCakeSection = () => {
             Make a wish, my love… <span className="text-rose-400">🕯️❤️</span>
           </h2>
           <p className="text-rose-200/80 text-base sm:text-lg font-serif italic mt-3">
-            {isBlown ? "Your wish has been sent to the stars ✨" : "Tap or click the cake to blow out your 20th birthday candles"}
+            {isBlown ? "Your wish has been sent to the stars ✨" : "Tap or click the cake to blow out your 19th birthday candles"}
           </p>
         </motion.div>
 
@@ -64,7 +64,7 @@ export const BirthdayCakeSection = () => {
             onClick={handleBlowCandles}
             className="cursor-pointer select-none relative p-6 sm:p-10 rounded-3xl glass-card border border-rose-500/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] flex flex-col items-center max-w-lg w-full"
           >
-            {/* 20th Birthday Candles */}
+            {/* 19th Birthday Candles */}
             <div className="relative z-10 flex items-end justify-center gap-6 sm:gap-10 mb-2">
               {[1, 2].map((candleIndex) => (
                 <div key={candleIndex} className="flex flex-col items-center relative">
@@ -100,7 +100,7 @@ export const BirthdayCakeSection = () => {
                   {/* Candle Stick */}
                   <div className="w-3.5 sm:w-4 h-12 sm:h-16 bg-gradient-to-r from-champagne-300 via-amber-100 to-champagne-400 rounded-t-md shadow-md border-t border-amber-200 flex items-center justify-center">
                     <span className="text-[9px] font-bold text-rose-900/60 font-serif">
-                      {candleIndex === 1 ? '2' : '0'}
+                      {candleIndex === 1 ? '1' : '9'}
                     </span>
                   </div>
                 </div>

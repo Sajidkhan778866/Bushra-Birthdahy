@@ -1,15 +1,47 @@
 import mediaManifest from './mediaManifest.json';
 
+const getAppBasePath = () => {
+  if (typeof window !== 'undefined') {
+    const pathname = window.location.pathname
+      .replace(/\/19th-birthday-video\/?$/, '')
+      .replace(/\/index\.html$/, '');
+    if (pathname.startsWith('/birthday')) {
+      return '/birthday/';
+    }
+  }
+  const envBase = import.meta.env.BASE_URL || './';
+  return envBase.endsWith('/') ? envBase : `${envBase}/`;
+};
+
+export const resolveAssetUrl = (pathStr) => {
+  if (!pathStr) return '';
+  if (pathStr.startsWith('http://') || pathStr.startsWith('https://') || pathStr.startsWith('data:')) {
+    return pathStr;
+  }
+  const cleanPath = pathStr.replace(/^\/+/, '');
+  return `${getAppBasePath()}${cleanPath}`;
+};
+
+const mapAssetList = (list = []) =>
+  list.map((item) => ({
+    ...item,
+    src: resolveAssetUrl(item.src)
+  }));
+
 export const mediaData = {
-  herPhotos: mediaManifest.bushraImages || [],
-  mePhotos: mediaManifest.meImages || [],
-  usPhotos: mediaManifest.usImages || [],
-  memoriesPhotos: mediaManifest.memoriesImages || [],
+  herPhotos: mapAssetList(mediaManifest.bushraImages),
+  mePhotos: mapAssetList(mediaManifest.meImages),
+  usPhotos: mapAssetList(mediaManifest.usImages),
+  memoriesPhotos: mapAssetList(mediaManifest.memoriesImages),
   
-  herVideos: mediaManifest.bushraVideos || [],
-  meVideos: mediaManifest.meVideos || [],
-  usVideos: mediaManifest.usVideos || [],
-  memoriesVideos: mediaManifest.memoriesVideos || [],
+  herVideos: mapAssetList(mediaManifest.bushraVideos),
+  meVideos: mapAssetList(mediaManifest.meVideos),
+  usVideos: mapAssetList(mediaManifest.usVideos),
+  memoriesVideos: mapAssetList(mediaManifest.memoriesVideos),
+  memoriesMedia: [
+    ...mapAssetList(mediaManifest.memoriesImages),
+    ...mapAssetList(mediaManifest.memoriesVideos)
+  ],
   
   scannedAt: mediaManifest.scannedAt || new Date().toISOString()
 };

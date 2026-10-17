@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Film } from 'lucide-react';
 import { HeroSection } from './sections/HeroSection';
 import { BirthdayMessageSection } from './sections/BirthdayMessageSection';
 import { BushraPhotosSection } from './sections/BushraPhotosSection';
@@ -16,6 +17,7 @@ import { FromMemoriesToForeverSection } from './sections/FromMemoriesToForeverSe
 import { FutureTogetherSection } from './sections/FutureTogetherSection';
 import { FinalBirthdaySection } from './sections/FinalBirthdaySection';
 import { FinalSpecialPhotoSection } from './sections/FinalSpecialPhotoSection';
+import { BirthdayVideoExperience } from './sections/BirthdayVideoExperience';
 
 import { PhotoLightbox } from './components/PhotoLightbox';
 import { VideoModal } from './components/VideoModal';
@@ -23,7 +25,48 @@ import { HeartParticles } from './components/HeartParticles';
 import { FloatingControls } from './components/FloatingControls';
 import { mediaData } from './data/media';
 
+const checkIsVideoRoute = () => {
+  if (typeof window === 'undefined') return false;
+  const pathname = window.location.pathname.replace(/\/+$/, '');
+  const hash = window.location.hash;
+  return (
+    pathname.endsWith('/19th-birthday-video') ||
+    hash === '#/19th-birthday-video'
+  );
+};
+
 export default function App() {
+  const [isVideoRoute, setIsVideoRoute] = useState(checkIsVideoRoute);
+
+  useEffect(() => {
+    const handlePopState = () => setIsVideoRoute(checkIsVideoRoute());
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
+  }, []);
+
+  const navigateToVideo = () => {
+    const cleanPath = window.location.pathname.replace(/\/+$/, '');
+    const targetPath = cleanPath.endsWith('/19th-birthday-video')
+      ? cleanPath
+      : `${cleanPath}/19th-birthday-video`;
+    window.history.pushState({}, '', targetPath);
+    setIsVideoRoute(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToHome = () => {
+    const cleanPath = window.location.pathname
+      .replace(/\/+$/, '')
+      .replace(/\/19th-birthday-video$/, '');
+    window.history.pushState({}, '', cleanPath || '/');
+    setIsVideoRoute(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Lightbox State
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxPhotos, setLightboxPhotos] = useState([]);
@@ -70,8 +113,12 @@ export default function App() {
     { id: 'story-timeline', label: 'Our Story' },
     { id: 'memory-wall', label: 'Memory Wall' },
     { id: 'future-together', label: 'Future Together' },
-    { id: 'final-birthday', label: 'Happy 20th' }
+    { id: 'final-birthday', label: 'Happy 19th' }
   ];
+
+  if (isVideoRoute) {
+    return <BirthdayVideoExperience onBackToSite={navigateToHome} />;
+  }
 
   return (
     <div className="relative min-h-screen bg-[#120407] text-[#FDFBF7] selection:bg-rose-500/30 selection:text-white">
@@ -80,6 +127,17 @@ export default function App() {
 
       {/* Subtle top progress bar & floating dots */}
       <FloatingControls sections={navSections} />
+
+      {/* Quick switch to 19th Birthday Video Experience */}
+      <div className="fixed top-4 left-4 z-40">
+        <button
+          onClick={navigateToVideo}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-950/85 hover:bg-rose-900/90 border border-rose-400/35 text-rose-200 text-xs sm:text-sm font-serif shadow-lg backdrop-blur-md transition-all hover:scale-105"
+        >
+          <Film className="w-3.5 h-3.5 text-amber-300" />
+          <span>19th Birthday Film 🎬</span>
+        </button>
+      </div>
 
       {/* Main Experience Flow */}
       <main className="relative z-10 flex flex-col">

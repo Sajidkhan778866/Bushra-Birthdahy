@@ -1,0 +1,41 @@
+# ============================================================================
+# Apache .htaccess for Bushra's 19th Birthday Website (cPanel Static SPA)
+# Supports both subdirectory deployment (/birthday/) and root deployment (/)
+# ============================================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Block direct access to sensitive hidden files/folders (.git, .env, .cpanel.yml)
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
+
+  # 2. If a nested route requests assets/ or favicon.svg with a route prefix, serve from app root
+  RewriteRule ^19th-birthday-video/(assets/.*|favicon\.svg)$ $1 [L]
+
+  # 3. Serve existing files and directories directly (photos, videos, JS, CSS)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 4. SPA Fallback: Route all client-side paths (e.g. /19th-birthday-video) to index.html
+  # Using relative "index.html" (no leading slash) so it works in /birthday/ or /
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Proper MIME types for local video and image assets
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Security Headers (migrated from Vercel configuration)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

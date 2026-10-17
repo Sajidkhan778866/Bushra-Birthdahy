@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    # Account: Smartdrive5640@gmail.com
+    # Using $HOME/public_html/birthday/ automatically resolves to your exact cPanel Linux home directory
+    # (e.g. /home/<cpanel_user>/public_html/birthday/) when cPanel runs "Deploy HEAD Commit".
+    - export DEPLOY_PATH="$HOME/public_html/birthday/"
+    - /bin/mkdir -p "$DEPLOY_PATH"
+    - test -n "$DEPLOY_PATH"
+    - test -f dist/index.html
+    - /bin/cp -a dist/. "$DEPLOY_PATH"

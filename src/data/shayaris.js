@@ -70,10 +70,10 @@ export const shayaris = [
     lines: [
       "हाथों में तेरा हाथ हो, और ज़िंदगी का सफर हो,",
       "तेरी मोहब्बत का साया, हर मोड़ पर हमसफ़र हो।",
-      "20वां साल मुबारक हो मेरी जान को,",
+      "19वां साल मुबारक हो मेरी जान को,",
       "हमारा ये प्यार सदियों तक अमर हो। 💍🌹"
     ],
-    transliteration: "Haathon mein tera haath ho, aur zindagi ka safar ho, teri mohabbat ka saaya, har mod par hamsafar ho. 20va saal mubarak ho meri jaan ko, hamara yeh pyaar sadiyon tak amar ho.",
-    tag: "20th Birthday"
+    transliteration: "Haathon mein tera haath ho, aur zindagi ka safar ho, teri mohabbat ka saaya, har mod par hamsafar ho. 19va saal mubarak ho meri jaan ko, hamara yeh pyaar sadiyon tak amar ho.",
+    tag: "19th Birthday"
   }
 ];
